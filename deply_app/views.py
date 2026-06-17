@@ -8,13 +8,22 @@ def show(request):
     print(data)
 
     return HttpResponse("hello")
+from django.http import HttpResponse
+
 def save(request):
-    name=request.POST["name"]
-    email=request.POST["email"]
+    try:
+        name = request.POST["name"]
+        email = request.POST["email"]
 
-    employee.objects.create(name=name,email=email)
+        employee.objects.create(
+            name=name,
+            email=email
+        )
 
-    return redirect('/register')
+        return HttpResponse("Saved Successfully")
+
+    except Exception as e:
+        return HttpResponse(str(e))
 
 def register(request):
     return render(request,"register.html",{})
