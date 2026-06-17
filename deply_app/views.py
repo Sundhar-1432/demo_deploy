@@ -1,7 +1,21 @@
 from django.shortcuts import render,redirect
-from deply_app.models import employee
+from deply_app.models import employee,Contact
 from django.http import HttpResponse
 
+
+def store(request):
+    name=request.POST['name']
+    email=request.POST['email']
+    subject=request.POST['subject']
+    message=request.POST['message']
+
+    Contact.objects.create(name=name,email=email,subject=subject,message=message)
+
+    return HttpResponse("data stored successfully")
+
+
+def contact(request):
+    return render(request,"contact.html",{})
 def show(request):
     data=employee.objects.all()
 

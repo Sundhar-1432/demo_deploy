@@ -20,6 +20,8 @@ from deply_app import views
 
 urlpatterns = [
 
+    path('store/',views.store),
+    path('contact/',views.contact),
     path('show/',views.show),
     path('save/',views.save),
     path('register/',views.register),

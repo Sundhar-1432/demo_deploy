@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Contact Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="form-container">
+        <form id="contactForm" method="post" action="/store/">
+            {% csrf_token %}
+            <h2>Get in Touch</h2>
+            
+            <div class="input-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+            </div>
+
+            <div class="input-group">
+                <label for="subject">Subject</label>
+                <select id="subject" name="subject">
+                    <option value="general">General Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="feedback">Feedback</option>
+                </select>
+            </div>
+
+            <div class="input-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="How can we help you?" required></textarea>
+            </div>
+
+            <button type="submit" id="submitBtn">Send Message</button>
+            
+            <div id="responseMessage" class="hidden"></div>
+        </form>
+    </div>
+
+    
+</body>
+</html>

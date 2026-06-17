@@ -38,7 +38,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 DEBUG = config("DEBUG", cast=bool)
-
+# ALLOWED_HOSTS = []
 ALLOWED_HOSTS = ['.onrender.com']
 
 
